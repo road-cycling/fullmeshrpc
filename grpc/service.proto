@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "autodiscovery/grpc/service";
+
+service SB {
+
+  rpc BC(stream SI) returns (stream Acker) {}
+  rpc LatencyChan(stream Timestamp) returns (stream Timestamp) {}
+}
+
+message Timestamp {
+  int64 sentTime = 1;
+  string sourceLocation = 2;
+}
+
+message SI {
+  string mHN = 1;
+  string iL = 2;
+  string LID = 3;
+  int64 cP = 4;
+  int64 cF = 5;
+  int64 sendTime = 6;
+  string sourceLocation = 7;
+}
+
+message Acker {
+  string iid = 1;
+}
